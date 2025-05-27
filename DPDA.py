@@ -4,7 +4,7 @@ class DPDA:
     def __init__(self, path):
         self.parse = Parsing(path)
         self.first = self.First()
-        # self.follow = self.Follow()
+        self.follow = self.Follow()
         # self.table = self.CreateTable(self.first, self.follow)
         
     def First(self):
@@ -60,9 +60,7 @@ class DPDA:
                                 dic[target].append(production[entity + 1])
 
                         else:
-                            print(self.first[production[entity + 1]])
-                            print(' '.join(production))
-                            dic[target].extend(x for x in self.first[production[entity + 1]][' '.join(production)] if x != 'eps' and x not in dic[target])
+                            dic[target].extend(x for x in list(self.first[production[entity + 1]].values()) if x != 'eps' and x not in dic[target])
                             
                         if len(dic[target]) > before:
                                     changed = True
