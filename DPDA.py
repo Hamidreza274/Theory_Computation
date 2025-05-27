@@ -5,7 +5,7 @@ class DPDA:
         self.parse = Parsing(path)
         self.first = self.First()
         self.follow = self.Follow()
-        # self.table = self.CreateTable(self.first, self.follow)
+        self.table = self.CreateTable()
         
     def First(self):
         dic = dict()
@@ -60,16 +60,31 @@ class DPDA:
                                 dic[target].append(production[entity + 1])
 
                         else:
-                            dic[target].extend(x for x in list(self.first[production[entity + 1]].values()) if x != 'eps' and x not in dic[target])
+                            lst = list()
+                            for x in self.first[production[entity + 1]].values():
+                                for y in x:
+                                    lst.append(y)
+                            dic[target].extend(x for x in lst if x != 'eps' and x not in dic[target])
                             
                         if len(dic[target]) > before:
                                     changed = True
         return dic
             
     
-    # def CreateTable(self):
-    #     for variable in self.first:
-    #         for f in 
+    def CreateTable(self):
+        dic = dict()
+        for var in self.parse.non_terminal:
+            dic[var] = dict()
+             
+        for variable in self.first:
+            for production in self.first[variable]:
+                for first in self.first[variable][production]:
+                    if first == 'eps':
+                        for follow in self.follow[variable]:
+                            dic[variable][follow] = production
+                    dic[variable][first] = production
+        return dic
+                
     
     
 a = DPDA('a.txt')
@@ -77,4 +92,5 @@ print(a.parse.productions)
 print("*******")
 print(a.first)
 print('**********')
-print(a.follow)
+# print(a.follow)
+print(a.table)
