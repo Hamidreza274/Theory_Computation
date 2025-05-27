@@ -1,4 +1,5 @@
 from Parsing import Parsing
+from Node import Node
 
 class DPDA:
     def __init__(self, path):
@@ -106,6 +107,8 @@ class DPDA:
         string = string.split()
         stack.append('$')
         stack.append(self.parse.startVar)
+        tree = Node(self.parse.startVar)
+        cur = tree
         top = 1
         counter = 0
         lookahead = string[counter]
@@ -117,6 +120,7 @@ class DPDA:
                 
             elif lookahead == stack[top]:
                 counter += 1
+                cur = cur.parent
                 stack.pop(top)
                 top -= 1
                 if len(string) == counter:
@@ -126,6 +130,11 @@ class DPDA:
             
             elif self.table[stack[top]].get(lookahead, None) is not None:
                 lst = self.table[stack[top]][lookahead].split()
+                for i in lst:
+                    node = Node(i)
+                    node.parent = cur
+                    cur.child.append(node)
+                cur = cur.child[0]
                 lst.reverse()
                 stack.pop(top)
                 if lst != ['eps']:
@@ -136,7 +145,7 @@ class DPDA:
                 
             else:
                 return False
-        return True
+        return tree
         
     
 a = DPDA('a.txt')
@@ -147,4 +156,5 @@ print('**********')
 print(a.follow)
 print('//////////////////')
 print(a.table)
-print(a.createParsingTree("IDENTIFIER STARS LITERAL"))
+tree = a.createParsingTree("IDENTIFIER STAR LITERAL")
+print(tree.preOrder(tree))
