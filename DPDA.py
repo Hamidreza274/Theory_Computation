@@ -34,24 +34,31 @@ class DPDA:
                 lst.remove('eps')
             return lst
         
-        
+    def lenT(self, dic: dict):
+        s = 0
+        for variable in dic:
+            s += len(dic[variable])
+        return s
+    
     def Follow(self):
         dic = {nt: [] for nt in self.parse.non_terminal}
         dic[self.parse.startVar].append('$')
-
+        
         changed = True
-        while changed:
+        m = 0
+        while m != 10:
             changed = False
+            m += 1
             for variable in self.parse.productions:
                 for production in self.parse.productions[variable]:
                     for entity in range(len(production)):
-                        if production[entity] in self.parse.terminal or production[entity] == 'eps':
+                        if production[entity] in self.parse.terminal:
                             continue
 
-                        target = production[entity]
-                        before = len(dic[target])
-
-                        if entity == len(production) - 1:
+                        target = production[entity] if production[entity] != 'eps' else variable
+                        before = self.lenT(dic)
+                        
+                        if production[entity] == 'eps' or entity == len(production) - 1:
                             dic[target].extend([x for x in dic[variable] if x not in dic[target]])
                             
                             
@@ -61,12 +68,19 @@ class DPDA:
 
                         else:
                             lst = list()
-                            for x in self.first[production[entity + 1]].values():
-                                for y in x:
-                                    lst.append(y)
+                            for z in range(entity + 1, len(production)):
+                                for x in self.first[production[z]].values():
+                                    for y in x:
+                                        lst.append(y)
+                                if 'eps' not in lst:
+                                        break
+                                if 'eps' in lst and z == len(production) - 1:
+                                    lst.extend(dic[variable])
+                                lst.remove('eps')
+                                
                             dic[target].extend(x for x in lst if x != 'eps' and x not in dic[target])
-                            
-                        if len(dic[target]) > before:
+                          
+                        if self.lenT(dic) > before:
                                     changed = True
         return dic
             
@@ -82,15 +96,55 @@ class DPDA:
                     if first == 'eps':
                         for follow in self.follow[variable]:
                             dic[variable][follow] = production
-                    dic[variable][first] = production
+                    else:
+                        dic[variable][first] = production
         return dic
                 
-    
+                
+    def createParsingTree(self, string: str):
+        stack = []
+        string = string.split()
+        stack.append('$')
+        stack.append(self.parse.startVar)
+        top = 1
+        counter = 0
+        lookahead = string[counter]
+        
+        while len(stack) != 0:
+            if stack[top] == '$' and lookahead == '$':
+                stack.pop(top)
+                top -= 1
+                
+            elif lookahead == stack[top]:
+                counter += 1
+                stack.pop(top)
+                top -= 1
+                if len(string) == counter:
+                    lookahead = '$'
+                else:
+                    lookahead = string[counter]
+            
+            elif self.table[stack[top]].get(lookahead, None) is not None:
+                lst = self.table[stack[top]][lookahead].split()
+                lst.reverse()
+                stack.pop(top)
+                if lst != ['eps']:
+                    stack.extend(lst)
+                    top += len(lst) - 1
+                else:
+                    top -= 1
+                
+            else:
+                return False
+        return True
+        
     
 a = DPDA('a.txt')
 print(a.parse.productions)
 print("*******")
 print(a.first)
 print('**********')
-# print(a.follow)
+print(a.follow)
+print('//////////////////')
 print(a.table)
+print(a.createParsingTree("IDENTIFIER STARS LITERAL"))
