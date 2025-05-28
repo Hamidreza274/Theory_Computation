@@ -32,8 +32,3 @@ class Parsing:
             for j in x[1:]:
                 y.append(j.split())
             self.productions[x[0]] = y
-            
-# A = Parsing('a.txt')
-# print(A.terminal)
-# print(A.productions)
-# print('************')

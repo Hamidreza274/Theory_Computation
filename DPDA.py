@@ -105,43 +105,43 @@ class DPDA:
     def createParsingTree(self, string: str):
         stack = []
         string = string.split()
-        stack.append('$')
-        stack.append(self.parse.startVar)
+        stack.append(('$', None))
         tree = Node(self.parse.startVar)
-        cur = tree
+        stack.append((self.parse.startVar, tree))
         top = 1
         counter = 0
         lookahead = string[counter]
         
         while len(stack) != 0:
-            if stack[top] == '$' and lookahead == '$':
+            print([x for x, y in stack])
+            if stack[top][0] == '$' and lookahead == '$':
                 stack.pop(top)
                 top -= 1
                 
-            elif lookahead == stack[top]:
+            elif lookahead == stack[top][0]:
                 counter += 1
-                cur = cur.parent
                 stack.pop(top)
                 top -= 1
-                if len(string) == counter:
-                    lookahead = '$'
-                else:
-                    lookahead = string[counter]
+                lookahead = '$' if len(string) == counter else string[counter]
+                
             
-            elif self.table[stack[top]].get(lookahead, None) is not None:
-                lst = self.table[stack[top]][lookahead].split()
+            elif self.table[stack[top][0]].get(lookahead, None) is not None:
+                lst = self.table[stack[top][0]][lookahead].split()
+                lst2 = []
+                cur = stack.pop(top)[1]
+                if lst == ['eps']:
+                    cur.child.append(Node('eps'))
+                    top -= 1
+                    continue
+
                 for i in lst:
                     node = Node(i)
-                    node.parent = cur
                     cur.child.append(node)
-                cur = cur.child[0]
-                lst.reverse()
-                stack.pop(top)
-                if lst != ['eps']:
-                    stack.extend(lst)
-                    top += len(lst) - 1
-                else:
-                    top -= 1
+                    lst2.append((i, node))
+                    
+                lst2.reverse()
+                stack.extend(lst2)
+                top += len(lst2) - 1
                 
             else:
                 return False
@@ -149,12 +149,12 @@ class DPDA:
         
     
 a = DPDA('a.txt')
-print(a.parse.productions)
-print("*******")
-print(a.first)
-print('**********')
-print(a.follow)
-print('//////////////////')
-print(a.table)
-tree = a.createParsingTree("IDENTIFIER STAR LITERAL")
-print(tree.preOrder(tree))
+# print(a.parse.productions)
+# print("*******")
+# print(a.first)
+# print('**********')
+# print(a.follow)
+# print('//////////////////')
+# print(a.table)
+tree = a.createParsingTree("( IDENTIFIER RIGHT_PAR LEFT_PAR IDENTIFIER RIGHT_PAR")
+tree.PrintTree()

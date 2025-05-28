@@ -1,0 +1,67 @@
+graph {
+	1 [label=E color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	2 [label=T color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	1 -- 2
+	3 [label=F color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	2 -- 3
+	4 [label=LEFT_PAR color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	3 -- 4
+	5 [label=E color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	3 -- 5
+	6 [label=T color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	5 -- 6
+	7 [label=F color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	6 -- 7
+	8 [label=IDENTIFIER color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	7 -- 8
+	9 [label=T_prime color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	6 -- 9
+	10 [label=eps color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	9 -- 10
+	11 [label=E_prime color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	5 -- 11
+	12 [label=eps color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	11 -- 12
+	13 [label=RIGHT_PAR color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	3 -- 13
+	14 [label=T_prime color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	2 -- 14
+	15 [label=eps color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	14 -- 15
+	16 [label=E_prime color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	1 -- 16
+	17 [label=PLUS color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	16 -- 17
+	18 [label=T color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	16 -- 18
+	19 [label=F color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	18 -- 19
+	20 [label=LEFT_PAR color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	19 -- 20
+	21 [label=E color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	19 -- 21
+	22 [label=T color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	21 -- 22
+	23 [label=F color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	22 -- 23
+	24 [label=IDENTIFIER color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	23 -- 24
+	25 [label=T_prime color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	22 -- 25
+	26 [label=eps color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	25 -- 26
+	27 [label=E_prime color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	21 -- 27
+	28 [label=eps color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	27 -- 28
+	29 [label=RIGHT_PAR color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	19 -- 29
+	30 [label=T_prime color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	18 -- 30
+	31 [label=eps color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	30 -- 31
+	32 [label=E_prime color=blue fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	16 -- 32
+	33 [label=eps color=green fixedsize=true fontsize=8 height=0.75 shape=circle style=filled width=0.75]
+	32 -- 33
+}
