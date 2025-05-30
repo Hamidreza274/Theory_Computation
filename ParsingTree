@@ -1,315 +1,315 @@
 graph {
-	1 [label=Program color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
-	2 [label=Function color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	1 [label=Program color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	2 [label=Function color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	1 -- 2
-	3 [label=function color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	3 [label=function color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	2 -- 3
-	4 [label=main color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	4 [label=main color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	2 -- 4
-	5 [label="\(" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	5 [label="\(" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	2 -- 5
-	6 [label="\)" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	6 [label="\)" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	2 -- 6
-	7 [label=Block color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	7 [label=Block color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	2 -- 7
-	8 [label="\{" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	8 [label="\{" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	7 -- 8
-	9 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	9 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	7 -- 9
-	10 [label=Statement color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	10 [label=Statement color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	9 -- 10
-	11 [label=x color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	11 [label=x color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	10 -- 11
-	12 [label="=" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	12 [label="=" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	10 -- 12
-	13 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	13 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	10 -- 13
-	14 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	14 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	13 -- 14
-	15 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	15 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	14 -- 15
-	16 [label=42 color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	16 [label=42 color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	15 -- 16
-	17 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	17 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	14 -- 17
-	18 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	18 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	17 -- 18
-	19 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	19 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	13 -- 19
-	20 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	20 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	19 -- 20
-	21 [label=";" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	21 [label=";" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	10 -- 21
-	22 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	22 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	9 -- 22
-	23 [label=Statement color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	23 [label=Statement color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	22 -- 23
-	24 [label=y color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	24 [label=y color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	23 -- 24
-	25 [label="=" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	25 [label="=" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	23 -- 25
-	26 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	26 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	23 -- 26
-	27 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	27 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	26 -- 27
-	28 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	28 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	27 -- 28
-	29 [label=3.14 color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	29 [label=3.14 color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	28 -- 29
-	30 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	30 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	27 -- 30
-	31 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	31 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	30 -- 31
-	32 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	32 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	26 -- 32
-	33 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	33 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	32 -- 33
-	34 [label=";" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	34 [label=";" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	23 -- 34
-	35 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	35 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	22 -- 35
-	36 [label=Statement color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	36 [label=Statement color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	35 -- 36
-	37 [label=z color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	37 [label=z color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	36 -- 37
-	38 [label="=" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	38 [label="=" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	36 -- 38
-	39 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	39 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	36 -- 39
-	40 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	40 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	39 -- 40
-	41 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	41 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	40 -- 41
-	42 [label="\(" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	42 [label="\(" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	41 -- 42
-	43 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	43 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	41 -- 43
-	44 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	44 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	43 -- 44
-	45 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	45 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	44 -- 45
-	46 [label=x color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	46 [label=x color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	45 -- 46
-	47 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	47 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	44 -- 47
-	48 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	48 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	47 -- 48
-	49 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	49 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	43 -- 49
-	50 [label="\+" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	50 [label="\+" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	49 -- 50
-	51 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	51 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	49 -- 51
-	52 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	52 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	51 -- 52
-	53 [label=y color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	53 [label=y color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	52 -- 53
-	54 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	54 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	51 -- 54
-	55 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	55 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	54 -- 55
-	56 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	56 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	49 -- 56
-	57 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	57 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	56 -- 57
-	58 [label="\)" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	58 [label="\)" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	41 -- 58
-	59 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	59 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	40 -- 59
-	60 [label="\*" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	60 [label="\*" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	59 -- 60
-	61 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	61 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	59 -- 61
-	62 [label=2 color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	62 [label=2 color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	61 -- 62
-	63 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	63 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	59 -- 63
-	64 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	64 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	63 -- 64
-	65 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	65 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	39 -- 65
-	66 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	66 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	65 -- 66
-	67 [label=";" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	67 [label=";" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	36 -- 67
-	68 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	68 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	35 -- 68
-	69 [label=Statement color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	69 [label=Statement color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	68 -- 69
-	70 [label=if color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	70 [label=if color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	69 -- 70
-	71 [label="\(" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	71 [label="\(" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	69 -- 71
-	72 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	72 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	69 -- 72
-	73 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	73 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	72 -- 73
-	74 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	74 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	73 -- 74
-	75 [label=z color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	75 [label=z color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	74 -- 75
-	76 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	76 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	73 -- 76
-	77 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	77 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	76 -- 77
-	78 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	78 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	72 -- 78
-	79 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	79 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	78 -- 79
-	80 [label="\)" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	80 [label="\)" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	69 -- 80
-	81 [label=Block color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	81 [label=Block color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	69 -- 81
-	82 [label="\{" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	82 [label="\{" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	81 -- 82
-	83 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	83 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	81 -- 83
-	84 [label=Statement color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	84 [label=Statement color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	83 -- 84
-	85 [label=result color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	85 [label=result color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	84 -- 85
-	86 [label="=" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	86 [label="=" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	84 -- 86
-	87 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	87 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	84 -- 87
-	88 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	88 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	87 -- 88
-	89 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	89 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	88 -- 89
-	90 [label=z color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	90 [label=z color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	89 -- 90
-	91 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	91 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	88 -- 91
-	92 [label="\/" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	92 [label="\/" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	91 -- 92
-	93 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	93 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	91 -- 93
-	94 [label=1.5 color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	94 [label=1.5 color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	93 -- 94
-	95 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	95 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	91 -- 95
-	96 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	96 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	95 -- 96
-	97 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	97 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	87 -- 97
-	98 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	98 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	97 -- 98
-	99 [label=";" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	99 [label=";" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	84 -- 99
-	100 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	100 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	83 -- 100
-	101 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	101 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	100 -- 101
-	102 [label="\}" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	102 [label="\}" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	81 -- 102
-	103 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	103 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	68 -- 103
-	104 [label=Statement color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	104 [label=Statement color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	103 -- 104
-	105 [label=while color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	105 [label=while color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	104 -- 105
-	106 [label="\(" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	106 [label="\(" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	104 -- 106
-	107 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	107 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	104 -- 107
-	108 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	108 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	107 -- 108
-	109 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	109 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	108 -- 109
-	110 [label=x color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	110 [label=x color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	109 -- 110
-	111 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	111 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	108 -- 111
-	112 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	112 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	111 -- 112
-	113 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	113 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	107 -- 113
-	114 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	114 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	113 -- 114
-	115 [label="\)" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	115 [label="\)" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	104 -- 115
-	116 [label=Block color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	116 [label=Block color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	104 -- 116
-	117 [label="\{" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	117 [label="\{" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	116 -- 117
-	118 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	118 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	116 -- 118
-	119 [label=Statement color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	119 [label=Statement color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	118 -- 119
-	120 [label=x color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	120 [label=x color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	119 -- 120
-	121 [label="=" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	121 [label="=" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	119 -- 121
-	122 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	122 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	119 -- 122
-	123 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	123 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	122 -- 123
-	124 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	124 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	123 -- 124
-	125 [label=x color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	125 [label=x color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	124 -- 125
-	126 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	126 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	123 -- 126
-	127 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	127 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	126 -- 127
-	128 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	128 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	122 -- 128
-	129 [label="-" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	129 [label="-" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	128 -- 129
-	130 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	130 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	128 -- 130
-	131 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	131 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	130 -- 131
-	132 [label=1 color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	132 [label=1 color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	131 -- 132
-	133 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	133 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	130 -- 133
-	134 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	134 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	133 -- 134
-	135 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	135 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	128 -- 135
-	136 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	136 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	135 -- 136
-	137 [label=";" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	137 [label=";" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	119 -- 137
-	138 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	138 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	118 -- 138
-	139 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	139 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	138 -- 139
-	140 [label="\}" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	140 [label="\}" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	116 -- 140
-	141 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	141 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	103 -- 141
-	142 [label=Statement color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	142 [label=Statement color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	141 -- 142
-	143 [label=return color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	143 [label=return color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	142 -- 143
-	144 [label=Expression color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	144 [label=Expression color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	142 -- 144
-	145 [label=Term color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	145 [label=Term color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	144 -- 145
-	146 [label=Factor color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	146 [label=Factor color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	145 -- 146
-	147 [label=result color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	147 [label=result color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	146 -- 147
-	148 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	148 [label=Term_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	145 -- 148
-	149 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	149 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	148 -- 149
-	150 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	150 [label=Expression_pr color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	144 -- 150
-	151 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	151 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	150 -- 151
-	152 [label=";" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	152 [label=";" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	142 -- 152
-	153 [label=Statements color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	153 [label=Statements color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	141 -- 153
-	154 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	154 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	153 -- 154
-	155 [label="\}" color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	155 [label="\}" color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	7 -- 155
-	156 [label=Program color=blue fixedsize=true fontsize=10 height=1 shape=circle style=filled width=1]
+	156 [label=Program color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
 	1 -- 156
-	157 [label=eps color=green fixedsize=true fontsize=15 height=1 shape=circle style=filled width=1]
+	157 [label=eps color=green fixedsize=true fontsize=15 height=1.2 shape=circle style=filled width=1.2]
 	156 -- 157
 }

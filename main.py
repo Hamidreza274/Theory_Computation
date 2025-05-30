@@ -13,29 +13,51 @@ def intInput(first=0, end=0, f=False):
 
 
 def menu():
-    print('please enter the on option')
+    print('\nplease enter the on option')
     print('1.string Member of the Language?')
-    print('2.ParseTree')
-    print('3.change variable name')
-    print('4.changeGrammer')
-    print('5.Exit')
+    print('2.ParseTree (with stack & parseTable & lookahead)')
+    print('3.ParseTree (with DPDA)')
+    print('4.change variable name')
+    print('5.changeGrammer')
+    print('6.Exit')
         
         
 while True:
-    path = input('please enter the address of the file containing the grammer:')
+    path = input('please enter the address of the file containing the grammer: ')
     dpda = DPDA(path)
-    
+    tree = None
     while True:
-        n = intInput(1, 5, True)
+        menu()
+        n = intInput(1, 6, True)
         
-        if n == 1:
-            dpda.
-        elif n == 2:
-            pass
-        elif n == 3:
-            pass
-        elif n == 4:
-            break
-        else :
-            exit(0)
+        try:
+            if n == 1:
+                pth = input('please enter the address of the file containing the strings: ')
+                tree = dpda.createParseTree(dpda.dpda, pth)
+                print('True') if tree else print('False')
+            
+            elif n == 2:
+                pth = input('please enter the address of the file containing the strings: ')
+                tree = dpda.createParseTree(dpda.dpda, pth)
+                if tree: tree.PrintTree() 
+                else: raise Exception('The string is not a member of the language')
+                
+            elif n == 3:
+                pth = input('please enter the address of the file containing the strings: ')
+                tree = dpda.createParsingTree(pth)
+                if tree: tree.PrintTree() 
+                else: raise Exception('The string is not a member of the language')
+                
+            elif n == 4:
+                break
+            
+            elif n == 5:
+                break
+            
+            else :
+                exit(0)
+                
+        except Exception as ex:
+            print(ex)
+    
         

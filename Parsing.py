@@ -12,24 +12,24 @@ class Parsing:
         
     def StringParser(self, path):
         file = open(path, "r").read()
-        line = re.split('\n+', file)
-        line = [i for i in line if not re.match(r'^\s*#', i)]
+        lines = re.split('\n+', file)
+        lines = [i for i in lines if not re.match(r'^\s*#', i)]
         
         # startVar
-        x = re.search(r"START\s=\s(.*)", line[0])
+        x = re.search(r"START\s=\s(.*)", lines[0])
         self.startVar = x.group(1)
         
         # non_terminal
-        x = re.search(r"^NON_TERMINALS\s+=\s+(.*)", line[1])
+        x = re.search(r"^NON_TERMINALS\s+=\s+(.*)", lines[1])
         self.non_terminal = x.group(1).split(' , ')
         
         # terminal
-        x = re.search(r"^TERMINALS\s+=\s+(.*)", line[2])
+        x = re.search(r"^TERMINALS\s+=\s+(.*)", lines[2])
         self.terminal = x.group(1).split(' , ')
         
         # Production
-        for i in range(3, len(line)-1):
-            x = re.split(r'\s+\|\s+|\s+->\s+', line[i])
+        for i in range(3, len(lines)-1):
+            x = re.split(r'\s+\|\s+|\s+->\s+', lines[i])
             
             if x[0] in self.terminal:
                 self.terminalPattern[x[1]] = x[0]

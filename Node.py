@@ -26,11 +26,11 @@ class Node:
         graph.node( name=node_id, 
                     label=node.value, 
                     shape='circle', 
-                    width='1', 
-                    height='1', 
+                    width='1.2', 
+                    height='1.2', 
                     style='filled',
                     color='blue' if len(node.child) != 0 else 'green', 
-                    fontsize='10' if len(node.child) != 0 else '15', 
+                    fontsize='10' if len(node.child) != 0 else '17', 
                     fixedsize='true'
                     )
 
