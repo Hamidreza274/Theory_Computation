@@ -1,5 +1,6 @@
 from Parsing import Parsing
 from Node import Node
+import re
 
 class DPDA:
     def __init__(self, path):
@@ -7,6 +8,7 @@ class DPDA:
         self.first = self.First()
         self.follow = self.Follow()
         self.table = self.CreateTable()
+        self.dpda = self.createDPDA()
         
     def First(self):
         dic = dict()
@@ -101,19 +103,125 @@ class DPDA:
                         dic[variable][first] = production
         return dic
                 
+    
+    def match(self, tk: str):
+        for i in self.parse.terminalPattern:
+            if re.match(i, tk):
+                return self.parse.terminalPattern[i]
+        return None
+    
+    
+    def createNode(self, lst:list, var: list, num: list):
+        nodeList = list()
+        for i in lst:
+            if i in self.parse.terminal:
+                if i == self.parse.terminalPattern['[a-zA-Z_][a-zA-Z0-9_]*']:
+                    nodeList.append(Node(var[0]))
+                    var.remove(var[0])
+                        
+                elif i == self.parse.terminalPattern['-?\d+(\.\d+)?([eE][+-]?\d+)?']:
+                    nodeList.append(Node(num[0]))
+                    num.remove(num[0])
+                    
+                else:
+                    for j in self.parse.terminalPattern:    
+                        if self.parse.terminalPattern[j] == i:
+                            nodeList.append(Node(j))
+            else:
+                nodeList.append(Node(i))
+        return nodeList
+    
+    
+    def createDPDA(self):
+        dic = dict()
+        dic[('q0', 'eps', '$')] = (f'{self.parse.startVar} $', 'q1')
+        
+        for variable in self.table:
+            for token in self.table[variable]:
+                dic[('q1', token, 'eps', variable)] = (self.table[variable][token], 'q1')
+        
+        for terminal in self.parse.terminal:
+            dic[('q1', terminal, terminal)] = ('eps', 'q1')
+            
+        dic[('q1', 'eps', '$')] = ('$', 'q2')
+        return dic
+    
+            
+    def createParseTree(self, dpda, path: str):
+        string = open(path, 'r').read().split()
+        var = [i for i in string if re.match(r'[a-zA-Z_][a-zA-Z0-9_]*', i) and i not in self.parse.terminalPattern]
+        num = [i for i in string if re.match(r'-?\d+(\.\d+)?([eE][+-]?\d+)?', i) and i not in self.parse.terminalPattern]
+        print(var, num)
+        string.append('$')
+        counter = 0
+        token = string[counter]
+        state = 'q0'
+        top = 0
+        stack = [('$', None)]
+        
+        while token != '$' or stack != [('$', None)]:
+            top = len(stack) - 1
+            if (state, self.match(token), stack[top][0]) in dpda:
+                update = dpda[(state, self.match(token), stack[top][0])]
+                state = update[1]
+                cur = stack.pop()
+                counter += 1
+                token = string[counter]
+                if update[0] == 'eps' and cur[0] in self.parse.terminal: continue
+                nodes = self.createNode(update[0].split(), var, num)
+                cur[1].child = nodes
+                if update[0] == 'eps': continue
+                stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
+                 
+            elif (state, self.match(token), 'eps', stack[top][0]) in dpda or (state, '$', 'eps', stack[top][0]) in dpda:
+                lookahead = self.match(token) if self.match(token) is not None else '$'
+                update = dpda[(state, lookahead, 'eps', stack[top][0])]
+                state = update[1]
+                cur = stack.pop()
+                if update[0] == 'eps' and cur[0] in self.parse.terminal: continue
+                nodes = self.createNode(update[0].split(), var, num)
+                cur[1].child = nodes
+                if update[0] == 'eps': continue
+                stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
                 
-    def createParsingTree(self, string: str):
+            # elif (state, self.match(token), 'eps') in dpda:
+            #     update = dpda[(state, self.match(token), 'eps')]
+            #     state = update[1]
+            #     nodes = self.createNode(update[0].split())
+            #     cur[1].child = nodes
+            #     if update[0] != 'eps': stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
+            #     counter += 1
+            #     token = string[counter]
+                
+            # elif (state, 'eps', 'eps') in dpda:
+            #     update = dpda[(state, 'eps', 'eps')]
+            #     state = update[1]
+            #     nodes = self.createNode(update[0].split())
+            #     cur[1].child = nodes
+            #     if update[0] != 'eps': stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
+            
+            elif ('q0', 'eps', '$') in dpda:
+                tree = Node(self.parse.startVar)
+                stack.append((self.parse.startVar, tree))
+                state = 'q1'
+                
+            else:
+                return False
+        return tree
+    
+        
+    def createParsingTree(self, path: str):
         stack = []
-        string = string.split()
+        string = open(path, 'r').read().split()
         stack.append(('$', None))
         tree = Node(self.parse.startVar)
         stack.append((self.parse.startVar, tree))
+        pointer = 0
         top = 1
         counter = 0
-        lookahead = string[counter]
+        lookahead = self.match(string[counter])
         
         while len(stack) != 0:
-            print([x for x, y in stack])
             if stack[top][0] == '$' and lookahead == '$':
                 stack.pop(top)
                 top -= 1
@@ -122,7 +230,7 @@ class DPDA:
                 counter += 1
                 stack.pop(top)
                 top -= 1
-                lookahead = '$' if len(string) == counter else string[counter]
+                lookahead = '$' if len(string) == counter else self.match(string[counter])
                 
             
             elif self.table[stack[top][0]].get(lookahead, None) is not None:
@@ -135,7 +243,9 @@ class DPDA:
                     continue
 
                 for i in lst:
-                    node = Node(i)
+                    node = Node(i) if i in self.parse.non_terminal else Node(string[pointer])
+                    if i in self.parse.terminal:
+                        pointer += 1 
                     cur.child.append(node)
                     lst2.append((i, node))
                     
@@ -148,7 +258,7 @@ class DPDA:
         return tree
         
     
-a = DPDA('a.txt')
+a = DPDA('b.txt')
 # print(a.parse.productions)
 # print("*******")
 # print(a.first)
@@ -156,5 +266,13 @@ a = DPDA('a.txt')
 # print(a.follow)
 # print('//////////////////')
 # print(a.table)
-tree = a.createParsingTree("( IDENTIFIER RIGHT_PAR LEFT_PAR IDENTIFIER RIGHT_PAR")
+# print('*************')
+print(a.createDPDA())
+# print(a.createParseTree(a.dpda, 'd.txt'))
+# tree = a.createParsingTree("( a + b ) * ( c + d + ( 123 ) )")
+# tree = a.createParsingTree('c.txt')
+tree = a.createParseTree(a.dpda, 'c.txt')
 tree.PrintTree()
+# tree.preOrder(tree)
+# tree.PrintTree()
+        

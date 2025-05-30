@@ -7,6 +7,7 @@ class Parsing:
         self.terminal = list()
         self.non_terminal = list()
         self.productions = dict()
+        self.terminalPattern = dict()
         self.StringParser(path)
         
     def StringParser(self, path):
@@ -28,7 +29,18 @@ class Parsing:
         # Production
         for i in range(3, len(line)-1):
             x = re.split(r'\s+\|\s+|\s+->\s+', line[i])
+            
+            if x[0] in self.terminal:
+                self.terminalPattern[x[1]] = x[0]
+                continue
+            
             y = list()
             for j in x[1:]:
                 y.append(j.split())
             self.productions[x[0]] = y
+            
+parse = Parsing('b.txt')
+print(parse.terminalPattern)
+# print(parse.non_terminal)
+# print(parse.terminal)
+# print(parse.productions)
