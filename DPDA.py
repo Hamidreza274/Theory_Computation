@@ -48,10 +48,8 @@ class DPDA:
         dic[self.parse.startVar].append('$')
         
         changed = True
-        m = 0
-        while m != 10:
+        while changed:
             changed = False
-            m += 1
             for variable in self.parse.productions:
                 for production in self.parse.productions[variable]:
                     for entity in range(len(production)):
@@ -146,7 +144,8 @@ class DPDA:
         dic[('q1', 'eps', '$')] = ('$', 'q2')
         return dic
     
-            
+    
+    # string prase with DPDA
     def createParseTree(self, dpda, path: str):
         string = open(path, 'r').read().split()
         var = [i for i in string if re.match(r'[a-zA-Z_][a-zA-Z0-9_]*', i) and i not in self.parse.terminalPattern]
@@ -209,7 +208,8 @@ class DPDA:
                 return False
         return tree
     
-        
+    
+    # string prase with stack & parseTable & lookahead
     def createParsingTree(self, path: str):
         stack = []
         string = open(path, 'r').read().split()
@@ -256,23 +256,3 @@ class DPDA:
             else:
                 return False
         return tree
-        
-    
-a = DPDA('b.txt')
-# print(a.parse.productions)
-# print("*******")
-# print(a.first)
-# print('**********')
-# print(a.follow)
-# print('//////////////////')
-# print(a.table)
-# print('*************')
-print(a.createDPDA())
-# print(a.createParseTree(a.dpda, 'd.txt'))
-# tree = a.createParsingTree("( a + b ) * ( c + d + ( 123 ) )")
-# tree = a.createParsingTree('c.txt')
-tree = a.createParseTree(a.dpda, 'c.txt')
-tree.PrintTree()
-# tree.preOrder(tree)
-# tree.PrintTree()
-        

@@ -13,6 +13,7 @@ class Parsing:
     def StringParser(self, path):
         file = open(path, "r").read()
         line = re.split('\n+', file)
+        line = [i for i in line if not re.match(r'^\s*#', i)]
         
         # startVar
         x = re.search(r"START\s=\s(.*)", line[0])
@@ -38,9 +39,3 @@ class Parsing:
             for j in x[1:]:
                 y.append(j.split())
             self.productions[x[0]] = y
-            
-parse = Parsing('b.txt')
-print(parse.terminalPattern)
-# print(parse.non_terminal)
-# print(parse.terminal)
-# print(parse.productions)
