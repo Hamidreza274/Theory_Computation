@@ -2,29 +2,36 @@ from graphviz import Graph
 from itertools import count
 
 class Node:
+    counter = 1
     def __init__(self, value):
+        self.node_id = Node.counter
         self.value = value
+        self.parent = None
         self.child = list()
+        Node.counter += 1
     
-    def preOrder(self, cur):
-        if cur is not None:
-            print(cur.value)
+    def preOrder(self, cur, lst):
+        if cur is None : 
+            return
+        
+        if cur is not None and len(cur.child) == 0 and cur.value != 'eps':
+            cnt = cur.value.replace('\\', '')
+            lst.append(cnt)
             
-            for i in cur.child:
-                self.preOrder(i)
+        for i in cur.child:
+            self.preOrder(i, lst)
+            
     
     def PrintTree(self):
         graph = Graph()
-        counter = count(1)
-        self.pTree(graph, self, counter)
-        graph.render('ParsingTree', format='png')
+        self.pTree(graph, self)
+        graph.render('ParsingTree', view=True)
         
         
-    def pTree(self, graph: Graph, node, counter, parent=None):
-        node_id = str(next(counter))
+    def pTree(self, graph: Graph, node, parent=None):
         
-        graph.node( name=node_id, 
-                    label=node.value, 
+        graph.node( name=str(node.node_id), 
+                    label=f"id:{node.node_id}\n{node.value}", 
                     shape='circle', 
                     width='1.2', 
                     height='1.2', 
@@ -35,11 +42,47 @@ class Node:
                     )
 
         if parent != None:
-            graph.edge(parent, node_id)
+            graph.edge(str(parent), str(node.node_id))
             
         for ch in node.child:
-            self.pTree(graph, ch, counter, node_id)
+            self.pTree(graph, ch, node.node_id)
     
     
+    def findNode(self, id):
+        if self.node_id == id:
+            return self
+        
+        for ch in self.child:
+            res = ch.findNode(id)
+            if res is not None:
+                return res
+            
+        return None
+        
+        
+    def changeValue(self, id, newValue):
+        cur = self.findNode(id)
+        node = cur
+        
+        while cur.value != 'Block' and cur.parent != None:
+            cur = cur.parent
+            
+        self.change(cur, newValue, node.value)
+        
+    
+    def change(self, cur, newValue, oldValue):
+        if cur.value == oldValue:
+            cur.value = newValue
+        
+        for ch in cur.child:
+            self.change(ch, newValue, oldValue)
+            
+    
+    def createFile(self):
+        lst = list()
+        self.preOrder(self, lst)
+        file = open('newFile.txt','w')
+        file.write(' '.join(lst))
+        
     def __str__(self):
-        return self.value
+        return self.value 

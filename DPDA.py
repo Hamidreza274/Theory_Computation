@@ -9,6 +9,7 @@ class DPDA:
         self.follow = self.Follow()
         self.table = self.CreateTable()
         self.dpda = self.createDPDA()
+        self.varStr = None
         
     def First(self):
         dic = dict()
@@ -109,24 +110,27 @@ class DPDA:
         return None
     
     
-    def createNode(self, lst:list, var: list, num: list):
+    def createNode(self, lst:list, var: list, num: list, cur):
         nodeList = list()
+        node = None
         for i in lst:
             if i in self.parse.terminal:
                 if i == self.parse.terminalPattern['[a-zA-Z_][a-zA-Z0-9_]*']:
-                    nodeList.append(Node(var[0]))
+                    node = Node(var[0])
                     var.remove(var[0])
                         
                 elif i == self.parse.terminalPattern.get(r'-?\d+(\.\d+)?([eE][+-]?\d+)?', None) or i == self.parse.terminalPattern.get(r'\d+(\.\d+)?', None):
-                    nodeList.append(Node(num[0]))
+                    node = Node(num[0])
                     num.remove(num[0])
                     
                 else:
                     for j in self.parse.terminalPattern:    
                         if self.parse.terminalPattern[j] == i:
-                            nodeList.append(Node(j))
+                            node = Node(j)
             else:
-                nodeList.append(Node(i))
+                node = Node(i)
+            node.parent = cur
+            nodeList.append(node)
         return nodeList
     
     
@@ -150,6 +154,7 @@ class DPDA:
         string = open(path, 'r').read().split()
         var = [i for i in string if re.match(r'[a-zA-Z_][a-zA-Z0-9_]*', i) and i not in self.parse.terminalPattern]
         num = [i for i in string if re.match(r'-?\d+(\.\d+)?([eE][+-]?\d+)?', i) and i not in self.parse.terminalPattern]
+        self.varStr = var.copy()
         string.append('$')
         counter = 0
         token = string[counter]
@@ -166,7 +171,7 @@ class DPDA:
                 counter += 1
                 token = string[counter]
                 if update[0] == 'eps' and cur[0] in self.parse.terminal: continue
-                nodes = self.createNode(update[0].split(), var, num)
+                nodes = self.createNode(update[0].split(), var, num, cur)
                 cur[1].child = nodes
                 if update[0] == 'eps': continue
                 stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
@@ -177,7 +182,7 @@ class DPDA:
                 state = update[1]
                 cur = stack.pop()
                 if update[0] == 'eps' and cur[0] in self.parse.terminal: continue
-                nodes = self.createNode(update[0].split(), var, num)
+                nodes = self.createNode(update[0].split(), var, num, cur)
                 cur[1].child = nodes
                 if update[0] == 'eps': continue
                 stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
@@ -185,7 +190,7 @@ class DPDA:
             # elif (state, self.match(token), 'eps') in dpda:
             #     update = dpda[(state, self.match(token), 'eps')]
             #     state = update[1]
-            #     nodes = self.createNode(update[0].split())
+            #     nodes = self.createNode(update[0].split(), var, num, cur)
             #     cur[1].child = nodes
             #     if update[0] != 'eps': stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
             #     counter += 1
@@ -194,7 +199,7 @@ class DPDA:
             # elif (state, 'eps', 'eps') in dpda:
             #     update = dpda[(state, 'eps', 'eps')]
             #     state = update[1]
-            #     nodes = self.createNode(update[0].split())
+            #     nodes = self.createNode(update[0].split(), var, num, cur)
             #     cur[1].child = nodes
             #     if update[0] != 'eps': stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
             
@@ -214,6 +219,7 @@ class DPDA:
         string = open(path, 'r').read().split()
         var = [i for i in string if re.match(r'[a-zA-Z_][a-zA-Z0-9_]*', i) and i not in self.parse.terminalPattern]
         num = [i for i in string if re.match(r'-?\d+(\.\d+)?([eE][+-]?\d+)?', i) and i not in self.parse.terminalPattern]
+        self.varStr = var.copy()
         stack.append(('$', None))
         tree = Node(self.parse.startVar)
         stack.append((self.parse.startVar, tree))
@@ -242,7 +248,7 @@ class DPDA:
                     top -= 1
                     continue
 
-                nodes = self.createNode(lst, var, num)
+                nodes = self.createNode(lst, var, num, cur)
                 cur.child = nodes
                 stack.extend(list(reversed(list(zip(lst, nodes)))))
                 
@@ -250,8 +256,4 @@ class DPDA:
                 return False
         return tree
     
-# a = DPDA('a.txt')
-# # tree = a.createParseTree(a.dpda, 'b.txt')
-# # print(a.dpda[('q1', 'eps', '$')])
-# tree = a.createParsingTree('c.txt')
-# tree.PrintTree()
+    

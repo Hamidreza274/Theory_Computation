@@ -1,0 +1,1 @@
+function main ( ) { ss = 42 ; y = 3.14 ; z = ( ss + y ) * 2 ; if ( z ) { result = z / 1.5 ; } while ( ss ) { ss = ss - 1 ; } return result ; }
