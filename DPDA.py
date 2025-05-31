@@ -171,18 +171,18 @@ class DPDA:
                 counter += 1
                 token = string[counter]
                 if update[0] == 'eps' and cur[0] in self.parse.terminal: continue
-                nodes = self.createNode(update[0].split(), var, num, cur)
+                nodes = self.createNode(update[0].split(), var, num, cur[1])
                 cur[1].child = nodes
                 if update[0] == 'eps': continue
                 stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
                  
-            elif (state, self.match(token), 'eps', stack[top][0]) in dpda or (state, '$', 'eps', stack[top][0]) in dpda:
+            elif (state, self.match(token), 'eps', stack[top][0]) in dpda or (state, token, 'eps', stack[top][0]) in dpda:
                 lookahead = self.match(token) if self.match(token) is not None else '$'
                 update = dpda[(state, lookahead, 'eps', stack[top][0])]
                 state = update[1]
                 cur = stack.pop()
                 if update[0] == 'eps' and cur[0] in self.parse.terminal: continue
-                nodes = self.createNode(update[0].split(), var, num, cur)
+                nodes = self.createNode(update[0].split(), var, num, cur[1])
                 cur[1].child = nodes
                 if update[0] == 'eps': continue
                 stack.extend(list(reversed(list(zip(update[0].split(), nodes)))))
@@ -212,7 +212,7 @@ class DPDA:
                 return False
         return tree
     
-    
+            
     # string prase with stack & parseTable & lookahead
     def createParsingTree(self, path: str):
         stack = []

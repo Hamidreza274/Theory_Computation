@@ -61,13 +61,13 @@ class Node:
         
         
     def changeValue(self, id, newValue):
-        cur = self.findNode(id)
-        node = cur
+        current = self.findNode(id)
+        node = current
         
-        while cur.value != 'Block' and cur.parent != None:
-            cur = cur.parent
+        while current.value != 'Block' and current.parent != None:
+            current = current.parent
             
-        self.change(cur, newValue, node.value)
+        self.change(current, newValue, node.value)
         
     
     def change(self, cur, newValue, oldValue):
@@ -84,5 +84,5 @@ class Node:
         file = open('newFile.txt','w')
         file.write(' '.join(lst))
         
-    def __str__(self):
-        return self.value 
+    # def __str__(self):
+    #     return self.value 

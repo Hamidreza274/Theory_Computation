@@ -1,5 +1,7 @@
 from DPDA import DPDA
 from Node import Node
+from Parsing import Parsing
+import re
 
 def intInput(first=0, end=0, f=False):
     try:
@@ -12,12 +14,12 @@ def intInput(first=0, end=0, f=False):
         return intInput(first, end, f)
     return n
 
-
+            
 def menu():
     print('\nplease enter the on option')
     print('1.string Member of the Language?')
-    print('2.ParseTree (with stack & parseTable & lookahead)')
-    print('3.ParseTree (with DPDA)')
+    print('2.ParseTree (with DPDA)')
+    print('3.ParseTree (with stack & parseTable & lookahead)')
     print('4.change variable name')
     print('5.changeGrammer')
     print('6.Exit')
@@ -63,6 +65,8 @@ while True:
                     tree.changeValue(id, string)
                     tree.PrintTree()
                     tree.createFile()
+                    string = open('newFile.txt', 'r').read().split()
+                    dpda.varStr = [i for i in string if re.match(r'[a-zA-Z_][a-zA-Z0-9_]*', i) and i not in dpda.parse.terminalPattern]
                     
                 elif n == 5:
                     break

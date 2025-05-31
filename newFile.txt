@@ -1,1 +1,1 @@
-( ee + b ) * ( c + d + ( 123 ) )
+function main ( ) { salam = 42 ; y = 3.14 ; z = ( salam + y ) * 2 ; if ( z ) { result = z / 1.5 ; } while ( salam ) { salam = salam - 1 ; } return result ; }
