@@ -1,0 +1,181 @@
+graph {
+	1 [label="id:1
+E" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	2 [label="id:2
+T" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	1 -- 2
+	4 [label="id:4
+F" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	2 -- 4
+	6 [label="id:6
+\(" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	4 -- 6
+	7 [label="id:7
+E" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	4 -- 7
+	9 [label="id:9
+T" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	7 -- 9
+	11 [label="id:11
+F" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	9 -- 11
+	13 [label="id:13
+ee" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	11 -- 13
+	12 [label="id:12
+T_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	9 -- 12
+	14 [label="id:14
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	12 -- 14
+	10 [label="id:10
+E_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	7 -- 10
+	15 [label="id:15
+\+" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	10 -- 15
+	16 [label="id:16
+T" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	10 -- 16
+	18 [label="id:18
+F" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	16 -- 18
+	20 [label="id:20
+b" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	18 -- 20
+	19 [label="id:19
+T_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	16 -- 19
+	21 [label="id:21
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	19 -- 21
+	17 [label="id:17
+E_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	10 -- 17
+	22 [label="id:22
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	17 -- 22
+	8 [label="id:8
+\)" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	4 -- 8
+	5 [label="id:5
+T_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	2 -- 5
+	23 [label="id:23
+\*" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	5 -- 23
+	24 [label="id:24
+F" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	5 -- 24
+	26 [label="id:26
+\(" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	24 -- 26
+	27 [label="id:27
+E" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	24 -- 27
+	29 [label="id:29
+T" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	27 -- 29
+	31 [label="id:31
+F" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	29 -- 31
+	33 [label="id:33
+c" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	31 -- 33
+	32 [label="id:32
+T_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	29 -- 32
+	34 [label="id:34
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	32 -- 34
+	30 [label="id:30
+E_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	27 -- 30
+	35 [label="id:35
+\+" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	30 -- 35
+	36 [label="id:36
+T" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	30 -- 36
+	38 [label="id:38
+F" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	36 -- 38
+	40 [label="id:40
+d" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	38 -- 40
+	39 [label="id:39
+T_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	36 -- 39
+	41 [label="id:41
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	39 -- 41
+	37 [label="id:37
+E_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	30 -- 37
+	42 [label="id:42
+\+" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	37 -- 42
+	43 [label="id:43
+T" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	37 -- 43
+	45 [label="id:45
+F" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	43 -- 45
+	47 [label="id:47
+\(" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	45 -- 47
+	48 [label="id:48
+E" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	45 -- 48
+	50 [label="id:50
+T" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	48 -- 50
+	52 [label="id:52
+F" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	50 -- 52
+	54 [label="id:54
+123" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	52 -- 54
+	53 [label="id:53
+T_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	50 -- 53
+	55 [label="id:55
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	53 -- 55
+	51 [label="id:51
+E_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	48 -- 51
+	56 [label="id:56
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	51 -- 56
+	49 [label="id:49
+\)" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	45 -- 49
+	46 [label="id:46
+T_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	43 -- 46
+	57 [label="id:57
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	46 -- 57
+	44 [label="id:44
+E_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	37 -- 44
+	58 [label="id:58
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	44 -- 58
+	28 [label="id:28
+\)" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	24 -- 28
+	25 [label="id:25
+T_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	5 -- 25
+	59 [label="id:59
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	25 -- 59
+	3 [label="id:3
+E_prime" color=blue fixedsize=true fontsize=10 height=1.2 shape=circle style=filled width=1.2]
+	1 -- 3
+	60 [label="id:60
+eps" color=green fixedsize=true fontsize=17 height=1.2 shape=circle style=filled width=1.2]
+	3 -- 60
+}

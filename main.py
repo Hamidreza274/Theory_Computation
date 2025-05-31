@@ -32,40 +32,45 @@ while True:
             menu()
             n = intInput(1, 6, True)
         
-        
-            if n == 1:
-                pth = input('please enter the address of the file containing the strings: ')
-                tree = dpda.createParseTree(dpda.dpda, pth)
-                print('True') if tree else print('False')
-            
-            elif n == 2:
-                pth = input('please enter the address of the file containing the strings: ')
-                tree = dpda.createParseTree(dpda.dpda, pth)
-                if tree: tree.PrintTree() 
-                else: raise Exception('The string is not a member of the language')
+            try :
+                if n == 1:
+                    Node.counter = 1
+                    pth = input('please enter the address of the file containing the strings: ')
+                    tree = dpda.createParseTree(dpda.dpda, pth)
+                    print('True') if tree else print('False')
                 
-            elif n == 3:
-                pth = input('please enter the address of the file containing the strings: ')
-                tree = dpda.createParsingTree(pth)
-                if tree: tree.PrintTree() 
-                else: raise Exception('The string is not a member of the language')
+                elif n == 2:
+                    Node.counter = 1
+                    pth = input('please enter the address of the file containing the strings: ')
+                    tree = dpda.createParseTree(dpda.dpda, pth)
+                    if tree: tree.PrintTree() 
+                    else: raise Exception('The string is not a member of the language')
+                    
+                elif n == 3:
+                    Node.counter = 1
+                    pth = input('please enter the address of the file containing the strings: ')
+                    tree = dpda.createParsingTree(pth)
+                    if tree: tree.PrintTree() 
+                    else: raise Exception('The string is not a member of the language')
+                    
+                elif n == 4:
+                    print(f'Please enter the id (1-{Node.counter - 1})')
+                    id = intInput(1, Node.counter, True)
+                    node = tree.findNode(id)
+                    if node.value not in dpda.varStr:
+                        raise Exception('Only variable names can be changed.')
+                    string = input('enter the new value: ')
+                    tree.changeValue(id, string)
+                    tree.PrintTree()
+                    tree.createFile()
+                    
+                elif n == 5:
+                    break
                 
-            elif n == 4:
-                print(f'Please enter the id (1-{Node.counter})')
-                id = intInput(1, Node.counter, True)
-                node = tree.findNode(id)
-                if node.value not in dpda.varStr:
-                    raise Exception('Only variable names can be changed.')
-                string = input('enter the new value: ')
-                tree.changeValue(id, string)
-                tree.PrintTree()
-                tree.createFile()
-                
-            elif n == 5:
-                break
-            
-            else :
-                exit(0)
+                else :
+                    exit(0)
+            except Exception as ex:
+                print(ex)
                 
     except Exception as ex:
         print(ex)

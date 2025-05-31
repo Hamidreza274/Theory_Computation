@@ -255,5 +255,3 @@ class DPDA:
             else:
                 return False
         return tree
-    
-    
